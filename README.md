@@ -3,4 +3,4 @@
   
   <img src="./assets/Hero.png" style="height: 300px;">
 </p>
-### LLM for University of South Florida's Artificial Intelligence and Business Analytics Program
+<h2>LLM for University of South Florida's Artificial Intelligence and Business Analytics Program</h2>
