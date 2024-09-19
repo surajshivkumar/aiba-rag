@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- saved from url=(0287)https://cdn.usf.edu/it-rt-chatbot/chatbot_canvas/chatbot_canvas_Studenthealth.html?chatbot-endpoint=https://e06b793875a5ee389538c6883f0a4b.11.environment.api.powerplatform.com/powervirtualagents/botsbyschema/cre88_studenthealthservicesProd/directline/token?api-version=2022-03-01-preview -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+     <title>USF Web Copilot</title>
+     <!--
+       chatbot_canvas.html
+       USF Research Technology.
+       Jason Hair. 2024.
+
+       based on:
+       https://learn.microsoft.com/en-us/microsoft-copilot-studio/customize-default-canvas?tabs=web
+     -->
+     <style>
+       html,
+       body {
+         height: 100%;
+       }
+
+       body {
+         margin: 0;
+       }
+
+       h2 {
+         color: whitesmoke;
+         font-family: "Open Sans", sans-serif;
+         font-size: 16px;
+         line-height: 20px;
+         margin: 0;
+         padding: 0 20px;
+       }
+
+       #banner {
+         align-items: center;
+         background-color: #006747;
+         display: flex;
+         height: 50px;
+       }
+
+       #webchat {
+         height: calc(100% - 50px);
+         /* height: calc(100%); */
+         overflow: hidden;
+         position: fixed;
+         top: 50px;
+         /* top: 0px; */
+         width: 100%;
+       }
+     </style>
+   <meta name="react-scroll-to-bottom:version" content="4.2.0"><meta name="react-film" content="version=3.1.1-main.df870ea"><meta name="botframework-directlinespeech:version" content="4.17.0"><meta name="botframework-directlinespeech" content="version=4.17.0; build_tool=tsup; format=esmodules"><meta name="web-speech-cognitive-services" content="version=7.1.3"><meta name="botframework-webchat:api" content="version=4.17.0; build-tool=tsup; module-format=esmodules"><meta name="botframework-webchat:bundle" content="version=4.17.0; variant=full; build-tool=tsup; module-format=esmodules"><meta name="botframework-webchat:component" content="version=4.17.0; build-tool=tsup; module-format=esmodules"><meta name="botframework-webchat:core" content="version=4.17.0; build-tool=tsup; module-format=esmodules"><meta name="botframework-webchat:bundle:variant" content="full"><meta name="botframework-webchat:bundle:version" content="4.17.0"><meta name="botframework-webchat:core:version" content="4.17.0"><meta name="botframework-webchat:ui:version" content="4.17.0"><style data-emotion="webchat--css-qodqw" data-s=""></style><style data-emotion="react-scroll-to-bottom--css-muidw" data-s=""></style><style data-emotion="react-film--css-dmvfb" data-s=""></style></head>
+   <body class="vsc-initialized">
+     <div>
+      
+       <div id="banner">
+         <h2>USF Student Health and Wellness Copilot</h2>
+       </div>
+      
+       <div id="webchat" role="main"><div class="webchat__css-custom-properties webchat--css-qodqw-p5rovv"><div class="webchat--css-qodqw-j7qwjs webchat--css-qodqw-1egyv3b" role="complementary"><div aria-live="polite" aria-relevant="all" class="webchat__toaster webchat--css-qodqw-1b39fog webchat--css-qodqw-up31fo" role="log"><div class="webchat__toaster__list" id="webchat__toaster__list__c571m"></div></div><div aria-labelledby="webchat__keyboard-help__header--frk9k" class="webchat__keyboard-help webchat--css-qodqw-5tcct1" role="dialog"><div class="webchat__keyboard-help__border"><div class="webchat__keyboard-help__box"><div class="webchat__keyboard-help__scrollable"><button aria-label="Close" class="webchat__keyboard-help__close-button" type="button"><div class="webchat__keyboard-help__close-button-border"><svg class="webchat__keyboard-help__close-button-image" focusable="false" role="presentation" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg"><path d="M2048 136l-888 888 888 888-136 136-888-888-888 888L0 1912l888-888L0 136 136 0l888 888L1912 0l136 136z"></path></svg></div></button><h2 class="webchat__keyboard-help__header" id="webchat__keyboard-help__header--frk9k">Keyboard controls</h2><article class="webchat__keyboard-help__section"><header><h3 class="webchat__keyboard-help__sub-header">Chat window</h3></header><div class="webchat__keyboard-help__two-panes"><svg class="webchat__keyboard-help__image webchat__keyboard-help__image--light" fill="none" focusable="false" height="200" role="presentation" viewBox="0 0 121 200" width="121" xmlns="http://www.w3.org/2000/svg"><rect height="199" stroke="#C8C6C4" width="109" x="0.5" y="0.5"></rect><rect height="156" stroke="#323130" width="102" x="3.5" y="4.5"></rect><rect height="42" stroke="#C8C6C4" width="93" x="7.5" y="8.5"></rect><rect height="99" stroke="#C8C6C4" width="93" x="7.5" y="55.5"></rect><rect height="13" stroke="#323130" width="102" x="3.5" y="182.5"></rect><rect height="13" stroke="#323130" width="32" x="3.5" y="165.5"></rect><rect height="13" stroke="#323130" width="32" x="38.5" y="165.5"></rect><rect height="13" stroke="#323130" width="32" x="73.5" y="165.5"></rect><path clip-rule="evenodd" d="M116.328 5.64645C116.524 5.45118 116.84 5.45118 117.036 5.64645L120.218 8.82843C120.413 9.02369 120.413 9.34027 120.218 9.53553C120.022 9.7308 119.706 9.7308 119.51 9.53553L117.182 7.20711V192.793L119.51 190.464C119.706 190.269 120.022 190.269 120.218 190.464C120.413 190.66 120.413 190.976 120.218 191.172L117.036 194.354C116.84 194.549 116.524 194.549 116.328 194.354L113.146 191.172C112.951 190.976 112.951 190.66 113.146 190.464C113.342 190.269 113.658 190.269 113.854 190.464L116.182 192.793V7.20711L113.854 9.53553C113.658 9.7308 113.342 9.7308 113.146 9.53553C112.951 9.34027 112.951 9.02369 113.146 8.82843L116.328 5.64645Z" fill="#323130" fill-rule="evenodd"></path></svg><svg class="webchat__keyboard-help__image webchat__keyboard-help__image--dark" fill="none" focusable="false" height="200" role="presentation" viewBox="0 0 121 200" width="121" xmlns="http://www.w3.org/2000/svg"><rect height="199" stroke="#484644" width="109" x="0.5" y="0.5"></rect><rect height="156" stroke="#F3F2F1" width="102" x="3.5" y="4.5"></rect><rect height="42" stroke="#484644" width="93" x="7.5" y="8.5"></rect><rect height="99" stroke="#484644" width="93" x="7.5" y="55.5"></rect><rect height="13" stroke="#F3F2F1" width="102" x="3.5" y="182.5"></rect><rect height="13" stroke="#F3F2F1" width="32" x="3.5" y="165.5"></rect><rect height="13" stroke="#F3F2F1" width="32" x="38.5" y="165.5"></rect><rect height="13" stroke="#F3F2F1" width="32" x="73.5" y="165.5"></rect><path clip-rule="evenodd" d="M116.328 5.64645C116.524 5.45118 116.84 5.45118 117.036 5.64645L120.218 8.82843C120.413 9.02369 120.413 9.34027 120.218 9.53553C120.022 9.7308 119.706 9.7308 119.51 9.53553L117.182 7.20711V192.793L119.51 190.464C119.706 190.269 120.022 190.269 120.218 190.464C120.413 190.66 120.413 190.976 120.218 191.172L117.036 194.354C116.84 194.549 116.524 194.549 116.328 194.354L113.146 191.172C112.951 190.976 112.951 190.66 113.146 190.464C113.342 190.269 113.658 190.269 113.854 190.464L116.182 192.793V7.20711L113.854 9.53553C113.658 9.7308 113.342 9.7308 113.146 9.53553C112.951 9.34027 112.951 9.02369 113.146 8.82843L116.328 5.64645Z" fill="#F3F2F1" fill-rule="evenodd"></path></svg><svg class="webchat__keyboard-help__image webchat__keyboard-help__image--high-contrast" fill="none" focusable="false" height="200" role="presentation" viewBox="0 0 121 200" width="121" xmlns="http://www.w3.org/2000/svg"><rect height="199" stroke="white" width="109" x="0.5" y="0.5"></rect><rect height="156" stroke="white" width="102" x="3.5" y="4.5"></rect><rect height="42" stroke="white" width="93" x="7.5" y="8.5"></rect><rect height="99" stroke="white" width="93" x="7.5" y="55.5"></rect><rect height="13" stroke="white" width="102" x="3.5" y="182.5"></rect><rect height="13" stroke="white" width="32" x="3.5" y="165.5"></rect><rect height="13" stroke="white" width="32" x="38.5" y="165.5"></rect><rect height="13" stroke="white" width="32" x="73.5" y="165.5"></rect><path clip-rule="evenodd" d="M116.328 5.64645C116.524 5.45118 116.84 5.45118 117.036 5.64645L120.218 8.82843C120.413 9.02369 120.413 9.34027 120.218 9.53553C120.022 9.7308 119.706 9.7308 119.51 9.53553L117.182 7.20711V192.793L119.51 190.464C119.706 190.269 120.022 190.269 120.218 190.464C120.413 190.66 120.413 190.976 120.218 191.172L117.036 194.354C116.84 194.549 116.524 194.549 116.328 194.354L113.146 191.172C112.951 190.976 112.951 190.66 113.146 190.464C113.342 190.269 113.658 190.269 113.854 190.464L116.182 192.793V7.20711L113.854 9.53553C113.658 9.7308 113.342 9.7308 113.146 9.53553C112.951 9.34027 112.951 9.02369 113.146 8.82843L116.328 5.64645Z" fill="white" fill-rule="evenodd"></path></svg><div class="webchat__keyboard-help__notes-pane"><dl class="webchat__keyboard-help__notes"><dt class="webchat__keyboard-help__notes-header">Move between items in the chat window</dt><dd class="webchat__keyboard-help__notes-text">Tab key</dd><dd class="webchat__keyboard-help__notes-text">Shift + tab key</dd></dl><dl class="webchat__keyboard-help__notes"><dt class="webchat__keyboard-help__notes-header">Do action</dt><dd class="webchat__keyboard-help__notes-text">Enter key</dd></dl></div></div></article><article class="webchat__keyboard-help__section"><header><h3 class="webchat__keyboard-help__header">Chat history</h3></header><div class="webchat__keyboard-help__two-panes"><svg class="webchat__keyboard-help__image webchat__keyboard-help__image--light" fill="none" focusable="false" height="200" role="presentation" viewBox="0 0 121 200" width="121" xmlns="http://www.w3.org/2000/svg"><rect height="199" stroke="#C8C6C4" width="109" x="0.5" y="0.5"></rect><rect height="156" stroke="#323130" width="102" x="3.5" y="4.5"></rect><rect height="42" stroke="#323130" stroke-dasharray="2 2" width="93" x="7.5" y="8.5"></rect><rect height="99" stroke="#323130" stroke-dasharray="2 2" width="93" x="7.5" y="55.5"></rect><rect height="13" stroke="#C8C6C4" width="102" x="3.5" y="182.5"></rect><rect height="13" stroke="#C8C6C4" width="32" x="3.5" y="165.5"></rect><rect height="13" stroke="#C8C6C4" width="32" x="38.5" y="165.5"></rect><rect height="13" stroke="#C8C6C4" width="32" x="73.5" y="165.5"></rect><path clip-rule="evenodd" d="M116.328 7.64645C116.524 7.45118 116.84 7.45118 117.036 7.64645L120.218 10.8284C120.413 11.0237 120.413 11.3403 120.218 11.5355C120.022 11.7308 119.706 11.7308 119.51 11.5355L117.182 9.20711V156.793L119.51 154.464C119.706 154.269 120.022 154.269 120.218 154.464C120.413 154.66 120.413 154.976 120.218 155.172L117.036 158.354C116.84 158.549 116.524 158.549 116.328 158.354L113.146 155.172C112.951 154.976 112.951 154.66 113.146 154.464C113.342 154.269 113.658 154.269 113.854 154.464L116.182 156.793V9.20711L113.854 11.5355C113.658 11.7308 113.342 11.7308 113.146 11.5355C112.951 11.3403 112.951 11.0237 113.146 10.8284L116.328 7.64645Z" fill="#323130" fill-rule="evenodd"></path></svg><svg class="webchat__keyboard-help__image webchat__keyboard-help__image--dark" fill="none" focusable="false" height="200" role="presentation" viewBox="0 0 121 200" width="121" xmlns="http://www.w3.org/2000/svg"><rect height="199" stroke="#484644" width="109" x="0.5" y="0.5"></rect><rect height="156" stroke="#F3F2F1" width="102" x="3.5" y="4.5"></rect><rect height="42" stroke="#F3F2F1" stroke-dasharray="2 2" width="93" x="7.5" y="8.5"></rect><rect height="99" stroke="#F3F2F1" stroke-dasharray="2 2" width="93" x="7.5" y="55.5"></rect><rect height="13" stroke="#484644" width="102" x="3.5" y="182.5"></rect><rect height="13" stroke="#484644" width="32" x="3.5" y="165.5"></rect><rect height="13" stroke="#484644" width="32" x="38.5" y="165.5"></rect><rect height="13" stroke="#484644" width="32" x="73.5" y="165.5"></rect><path clip-rule="evenodd" d="M116.328 7.64645C116.524 7.45118 116.84 7.45118 117.036 7.64645L120.218 10.8284C120.413 11.0237 120.413 11.3403 120.218 11.5355C120.022 11.7308 119.706 11.7308 119.51 11.5355L117.182 9.20711V156.793L119.51 154.464C119.706 154.269 120.022 154.269 120.218 154.464C120.413 154.66 120.413 154.976 120.218 155.172L117.036 158.354C116.84 158.549 116.524 158.549 116.328 158.354L113.146 155.172C112.951 154.976 112.951 154.66 113.146 154.464C113.342 154.269 113.658 154.269 113.854 154.464L116.182 156.793V9.20711L113.854 11.5355C113.658 11.7308 113.342 11.7308 113.146 11.5355C112.951 11.3403 112.951 11.0237 113.146 10.8284L116.328 7.64645Z" fill="#F3F2F1" fill-rule="evenodd"></path></svg><svg class="webchat__keyboard-help__image webchat__keyboard-help__image--high-contrast" fill="none" focusable="false" height="200" role="presentation" viewBox="0 0 121 200" width="121" xmlns="http://www.w3.org/2000/svg"><rect height="199" stroke="white" width="109" x="0.5" y="0.5"></rect><rect height="156" stroke="white" width="102" x="3.5" y="4.5"></rect><rect height="42" stroke="white" stroke-dasharray="2 2" width="93" x="7.5" y="8.5"></rect><rect height="99" stroke="white" stroke-dasharray="2 2" width="93" x="7.5" y="55.5"></rect><rect height="13" stroke="white" width="102" x="3.5" y="182.5"></rect><rect height="13" stroke="white" width="32" x="3.5" y="165.5"></rect><rect height="13" stroke="white" width="32" x="38.5" y="165.5"></rect><rect height="13" stroke="white" width="32" x="73.5" y="165.5"></rect><path clip-rule="evenodd" d="M116.328 7.64645C116.524 7.45118 116.84 7.45118 117.036 7.64645L120.218 10.8284C120.413 11.0237 120.413 11.3403 120.218 11.5355C120.022 11.7308 119.706 11.7308 119.51 11.5355L117.182 9.20711V156.793L119.51 154.464C119.706 154.269 120.022 154.269 120.218 154.464C120.413 154.66 120.413 154.976 120.218 155.172L117.036 158.354C116.84 158.549 116.524 158.549 116.328 158.354L113.146 155.172C112.951 154.976 112.951 154.66 113.146 154.464C113.342 154.269 113.658 154.269 113.854 154.464L116.182 156.793V9.20711L113.854 11.5355C113.658 11.7308 113.342 11.7308 113.146 11.5355C112.951 11.3403 112.951 11.0237 113.146 10.8284L116.328 7.64645Z" fill="white" fill-rule="evenodd"></path></svg><div class="webchat__keyboard-help__notes-pane"><dl class="webchat__keyboard-help__notes"><dt class="webchat__keyboard-help__notes-header">Move between messages</dt><dd class="webchat__keyboard-help__notes-text">Arrow up key</dd><dd class="webchat__keyboard-help__notes-text">Arrow down key</dd></dl><dl class="webchat__keyboard-help__notes"><dt class="webchat__keyboard-help__notes-header">Access items in message</dt><dd class="webchat__keyboard-help__notes-text">Enter key</dd></dl><dl class="webchat__keyboard-help__notes"><dt class="webchat__keyboard-help__notes-header">Move between items in a message</dt><dd class="webchat__keyboard-help__notes-text">Tab key</dd><dd class="webchat__keyboard-help__notes-text">Shift + tab key</dd></dl><dl class="webchat__keyboard-help__notes"><dt class="webchat__keyboard-help__notes-header">Exit message</dt><dd class="webchat__keyboard-help__notes-text">Escape key</dd></dl></div></div></article></div></div></div></div><div aria-label="Chat history, press arrow keys to navigate." class="webchat__basic-transcript webchat--css-qodqw-1orlmet webchat--css-qodqw-1tdc372 webchat--css-qodqw-1rr4qq7" dir="ltr" role="group" tabindex="0" aria-activedescendant="webchat__transcript-focus-vsp__activity-xi099"><div aria-live="polite" aria-roledescription="chat history" class="webchat__live-region-transcript webchat--css-qodqw-1je9q5d" role="log"></div><div tabindex="0"></div><div class="react-scroll-to-bottom--css-muidw-1n7m0yu webchat__basic-transcript__scrollable"><div aria-hidden="true" class="webchat__basic-transcript__filler"></div><section aria-roledescription="chat history" class="webchat--css-qodqw-1l95nvm webchat__basic-transcript__transcript" role="feed"><article class="webchat__basic-transcript__activity webchat__basic-transcript__activity--read"><div aria-labelledby="webchat__basic-transcript__active-descendant-label--xi099" class="webchat__basic-transcript__activity-active-descendant" id="webchat__transcript-focus-vsp__activity-xi099" role="article"><div aria-hidden="true" class="webchat--css-qodqw-111jw2m" id="webchat__basic-transcript__active-descendant-label--xi099">Bot RR said: Hello. Welcome to the Student Health chatbot. Please ask a question; I will do my best to find an answer. In an emergency call or text 9-1-1. For Urgent concerns, call 813.974.2331
+I’m powered by Generative AI and designed to provide sources for my answers, so you can confirm their accuracy as needed.</div></div><div tabindex="0"></div><div><div class="webchat__basic-transcript__activity-body"><div aria-labelledby="webchat__stacked-layout__id--gv8me" class="webchat__stacked-layout webchat--css-qodqw-rctxl4 webchat--css-qodqw-1dj39uo webchat__stacked-layout--show-avatar webchat__stacked-layout--top-callout"><div class="webchat__stacked-layout__main"><div class="webchat__stacked-layout__avatar-gutter"><div aria-hidden="true" class="webchat__defaultAvatar webchat--css-qodqw-1c6pw13 webchat--css-qodqw-1a7chdr"><div class="webchat__initialsAvatar webchat--css-qodqw-1h0zvpv webchat--css-qodqw-1anji3w"><div class="webchat__initialsAvatar__initials">RR</div></div><div class="webchat__imageAvatar webchat--css-qodqw-o7d8eg webchat--css-qodqw-170x19b"><div class="webchat--css-qodqw-17j40uk webchat__imageAvatar__image" style="height: 100%; width: 100%;"><img alt="" src="./usf_logo_bull_u.png"></div></div></div></div><div class="webchat__stacked-layout__content"><div aria-roledescription="message" class="webchat__stacked-layout__message-row" id="webchat__stacked-layout__id--gv8me" role="group"><div class="webchat--css-qodqw-111jw2m">Bot RR said:</div><div class="webchat__bubble webchat__bubble--hide-nub webchat__bubble--nub-on-top webchat--css-qodqw-1qo0vqe webchat--css-qodqw-fu5noc webchat__stacked-layout__message"><div class="webchat__bubble__nub-pad"></div><div class="webchat__bubble__content"><div class="webchat__text-content webchat__text-content--is-markdown webchat--css-qodqw-1gi36dr"><div class="webchat__text-content__markdown webchat--css-qodqw-kdgeig"><div xmlns="http://www.w3.org/1999/xhtml" class="webchat__render-markdown webchat__render-markdown--message-activity webchat--css-qodqw-kdgeig"><p>Hello. Welcome to the Student Health chatbot. Please ask a question; I will do my best to find an answer. <strong>In an emergency call or text 9-1-1.</strong> For Urgent concerns, call 813.974.2331</p><p>I’m powered by Generative AI and designed to provide sources for my answers, so you can confirm their accuracy as needed.</p></div>
+</div></div></div></div></div></div><div class="webchat__stacked-layout__alignment-pad"></div></div><div class="webchat__stacked-layout__status"><div class="webchat__stacked-layout__avatar-gutter"></div><div class="webchat__stacked-layout__nub-pad"></div><span class="webchat__activity-status--slotted webchat__activity-status webchat--css-qodqw-97vy13"><div class="webchat--css-qodqw-111jw2m">Sent at September 16 at 8:02 PM</div><span aria-hidden="true">Just now</span></span><div class="webchat__stacked-layout__alignment-pad"></div></div></div></div></div><div tabindex="0"></div><div class="webchat__basic-transcript__activity-indicator webchat__basic-transcript__activity-indicator--focus"></div></article></section></div><div tabindex="0"></div><div aria-labelledby="webchat__basic-transcript__terminator-label--zx9qt" class="webchat__basic-transcript__terminator" role="note" tabindex="0"><div class="webchat__basic-transcript__terminator-body"><div class="webchat__basic-transcript__terminator-text" id="webchat__basic-transcript__terminator-label--zx9qt">End of chat history</div></div></div><div class="webchat__basic-transcript__focus-indicator"></div></div><div class="webchat--css-qodqw-111jw2m">Connectivity Status: Connected</div><div aria-invalid="false" class="webchat__send-box webchat--css-qodqw-17dm1da webchat--css-qodqw-1bfjcn2 webchat--css-qodqw-6su6fj" dir="ltr" role="form"><div aria-label="Suggested actions" aria-orientation="horizontal" class="webchat__suggested-actions webchat__suggested-actions--carousel-layout webchat--css-qodqw-vtuthq webchat--css-qodqw-1bwrjwc" role="toolbar"><div class="react-film--css-dmvfb-txtskt webchat__suggested-actions__carousel" dir="ltr"><div class="react-film__main"><button aria-label="Previous" class="react-film__flipper react-film__main__overlay react-film__flipper--left" type="button"><div class="react-film__flipper__slider react-film__main__slider react-film__main__slider--hide react-film__main__slider--left"><div class="react-film__flipper__body">&lt;</div></div></button><div class="react-film__filmstrip"><ul class="react-film__filmstrip__list"><li class="react-film__filmstrip__item"><div class="webchat__suggested-actions__item-box"><button aria-keyshortcuts="Control+AltGraph+A" class="webchat__suggested-action webchat--css-qodqw-12ui717 webchat--css-qodqw-9g7ov9 webchat__suggested-actions__button" type="button" tabindex="0"><span class="webchat__suggested-action__text webchat__suggested-actions__button-text">Set up appointment</span><div class="webchat__suggested-action__keyboard-focus-indicator"></div></button></div></li><li class="react-film__filmstrip__item"><div class="webchat__suggested-actions__item-box"><button aria-keyshortcuts="Alt+Shift+A" class="webchat__suggested-action webchat--css-qodqw-12ui717 webchat--css-qodqw-9g7ov9 webchat__suggested-actions__button" type="button" tabindex="-1"><span class="webchat__suggested-action__text webchat__suggested-actions__button-text">Health Records</span><div class="webchat__suggested-action__keyboard-focus-indicator"></div></button></div></li><li class="react-film__filmstrip__item"><div class="webchat__suggested-actions__item-box"><button aria-keyshortcuts="Control+AltGraph+A" class="webchat__suggested-action webchat--css-qodqw-12ui717 webchat--css-qodqw-9g7ov9 webchat__suggested-actions__button" type="button" tabindex="-1"><span class="webchat__suggested-action__text webchat__suggested-actions__button-text">Insurance Information</span><div class="webchat__suggested-action__keyboard-focus-indicator"></div></button></div></li></ul></div><button aria-label="Next" class="react-film__flipper react-film__main__overlay react-film__flipper--right" type="button"><div class="react-film__flipper__slider react-film__main__slider react-film__main__slider--right"><div class="react-film__flipper__body">&gt;</div></div></button></div></div><div class="webchat__suggested-actions__focus-indicator"></div></div><div class="webchat__send-box__main"><form aria-disabled="false" class="webchat__send-box-text-box webchat--css-qodqw-titn9n webchat--css-qodqw-1ig1f67 webchat__send-box__text-box"><input class="webchat__send-box-text-box__input" placeholder="Type your message" aria-label="Message input box" data-id="webchat-sendbox-input" inputmode="text" type="text" value=""></form><button class="webchat--css-qodqw-1r0ige7 webchat__icon-button webchat__icon-button--stretch webchat__send-button webchat__send-box__button webchat__send-box__button--align-stretch" title="Send" type="button"><div class="webchat__icon-button__shade"></div><svg class="webchat__send-icon webchat--css-qodqw-varv44" height="28" viewBox="0 0 45.7 33.8" width="28"><path clip-rule="evenodd" d="M8.55 25.25l21.67-7.25H11zm2.41-9.47h19.26l-21.67-7.23zm-6 13l4-11.9L5 5l35.7 11.9z"></path></svg><div class="webchat__icon-button__keyboard-focus-indicator"></div></button></div></div></div><span class="webchat__submit-error-message webchat--css-qodqw-1e9i5sl" id="webchat__send-box__error-message-id--dahzd" role="alert"></span></div></div>
+     </div>
+
+     <!--
+       In this sample, the latest version of Web Chat is being used.
+       In production environment, the version number should be pinned and version bump should be done frequently.
+
+       Please visit https://github.com/microsoft/BotFramework-WebChat/tree/main/CHANGELOG.md for changelog.
+     -->
+     <script crossorigin="anonymous" src="./webchat.js"></script>
+
+     <script>
+       (async function () {
+          // since we can't be certain of the CDN URL, calculate the relative path, so we can use later for referencing media
+          var currentScript = document.currentScript.src;
+          var scriptName = currentScript.split('/').pop();
+          var cdnPath = '';
+          if (scriptName) {
+            cdnPath = currentScript.replace(scriptName, '');
+          }
+
+         // Specifies style options to customize the Web Chat canvas.
+         // Please visit https://microsoft.github.io/BotFramework-WebChat for customization samples.
+         const styleOptions = {
+          // see styles here:
+          // https://github.com/microsoft/BotFramework-WebChat/blob/main/packages/api/src/defaultStyleOptions.ts
+
+          // Hide upload button.
+           hideUploadButton: true,
+
+          // Basic Style
+          /*backgroundColor: 'lightgray',*/
+          fontSizeSmall: '80%',
+
+          // Bot Avatar
+          // accent: '#00809d',  // accent is just faint enough to fail contrast with UCM
+          avatarBorderRadius: '0%',
+          avatarSize: 60,
+          botAvatarBackgroundColor: '#FFFFFF',
+          botAvatarImage: cdnPath + 'media/usf_logo_bull_u.png',
+          botAvatarInitials: 'RR',
+          
+                 
+          // chatbot bubble
+          bubbleBackground: '#ECECEC',
+          /* bubbleFromUserBackground: '#DBE442',*/
+          bubbleFromUserTextColor: 'black'
+          
+        };
+
+         // Specifies the token endpoint URL.
+         // To get this value, visit Copilot Studio > Settings > Channels > Mobile app page.
+         var urlParams = new URLSearchParams(window.location.search);
+         var chatbotEndpoint = urlParams.get('chatbot-endpoint');
+         const tokenEndpointURL = new URL(chatbotEndpoint);
+
+         // Specifies the language the copilot and Web Chat should display in:
+         // - (Recommended) To match the page language, set it to document.documentElement.lang
+         // - To use current user language, set it to navigator.language with a fallback language
+         // - To use another language, set it to supported Unicode locale
+
+         // Setting page language is highly recommended.
+         // When page language is set, browsers will use native font for the respective language.
+
+         const locale = document.documentElement.lang || 'en'; // Uses language specified in <html> element and fallback to English (United States).
+         // const locale = navigator.language || 'ja-JP'; // Uses user preferred language and fallback to Japanese.
+         // const locale = 'zh-HAnt'; // Always use Chinese (Traditional).
+
+         const apiVersion = tokenEndpointURL.searchParams.get('api-version');
+
+         const [directLineURL, token] = await Promise.all([
+           fetch(new URL(`/powervirtualagents/regionalchannelsettings?api-version=${apiVersion}`, tokenEndpointURL))
+             .then(response => {
+               if (!response.ok) {
+                 throw new Error('Failed to retrieve regional channel settings.');
+               }
+
+               return response.json();
+             })
+             .then(({ channelUrlsById: { directline } }) => directline),
+           fetch(tokenEndpointURL)
+             .then(response => {
+               if (!response.ok) {
+                 throw new Error('Failed to retrieve Direct Line token.');
+               }
+
+               return response.json();
+             })
+             .then(({ token }) => token)
+         ]);
+
+         // The "token" variable is the credentials for accessing the current conversation.
+         // To maintain conversation across page navigation, save and reuse the token.
+
+         // The token could have access to sensitive information about the user.
+         // It must be treated like user password.
+
+         const directLine = WebChat.createDirectLine({ domain: new URL('v3/directline', directLineURL), token });
+
+         // Sends "startConversation" event when the connection is established.
+
+         const subscription = directLine.connectionStatus$.subscribe({
+           next(value) {
+             if (value === 2) {
+               directLine
+                 .postActivity({
+                   localTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                   locale,
+                   name: 'startConversation',
+                   type: 'event'
+                 })
+                 .subscribe();
+
+               // Only send the event once, unsubscribe after the event is sent.
+               subscription.unsubscribe();
+             }
+           }
+         });
+
+         WebChat.renderWebChat({ directLine, locale, styleOptions }, document.getElementById('webchat'));
+       })();
+     </script>
+   
+ </body><style>
+@media print {
+  #simplify-jobs-container {
+    display: none;
+  }
+}
+</style><div id="simplify-jobs-container" style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px; overflow: visible; z-index: 2147483647;"></div><script id="simplify-jobs-page-script" src="chrome-extension://pbanhockgagggenencehbnadejlgchfc/js/pageScript.bundle.js"></script></html>

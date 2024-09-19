@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "source": "../pages/immunization.htm",
+    "title": "Immunization Compliance | Student Health Services",
+    "keywords": "",
+    "description": "",
+    "extractor_used": "main_content_well"
+  },
+  "chunks": [
+    {
+      "content": "Review your OASIS account for any outstanding items. Log in with your Net ID. Click\n               the Personal tab and scroll down to View Immunization Record. Documents may be pdf,\n               jpg, or png. Upload documentation HERE Allow 2 business days for processing and updating your record. Per USF Policy 33-002, it is mandatory for USF students to submit all required immunization documentation\n               in English and/or the completed Medical History Form prior to course registration. Course registration will be restricted until you have fulfilled",
+      "metadata": {
+        "source": "../pages/immunization.htm",
+        "title": "Immunization Compliance | Student Health Services",
+        "keywords": "",
+        "description": "",
+        "extractor_used": "main_content_well"
+      }
+    },
+    {
+      "content": "in English and/or the completed Medical History Form prior to course registration. Course registration will be restricted until you have fulfilled\n               this requirement. Submit proof of 2 MMRs given after 1st birthday, or IgG quantitative lab report (performed within last 5 years). Lab report must include result and reference range. Submit proof of immunity to Hepatitis B by providing 3 vaccine dates or Quantitative lab report  or Waive this recommended vaccine through your student OASIS or MyBullsPath account (for Tip Sheet: click here) or on the USF Medical History form. Submit proof of Meningitis vaccination administered after 16th birthday or Waive this recommended vaccine through your student OASIS account or MyBullsPath (for Tip Sheet: click here) or on the USF Medical History form. Click here to review an Immunization Guide. If you are missing any vaccine and/ or labs, please contact your current healthcare",
+      "metadata": {
+        "source": "../pages/immunization.htm",
+        "title": "Immunization Compliance | Student Health Services",
+        "keywords": "",
+        "description": "",
+        "extractor_used": "main_content_well"
+      }
+    },
+    {
+      "content": "provider or schedule an Immunization Compliance Appointment by clicking here. For an exemption request, please contact our office directly. Please refer to the tabs on the left side for additional information particular to\n                  your student status/population. Click here for a tutorial on how to register.",
+      "metadata": {
+        "source": "../pages/immunization.htm",
+        "title": "Immunization Compliance | Student Health Services",
+        "keywords": "",
+        "description": "",
+        "extractor_used": "main_content_well"
+      }
+    }
+  ]
+}
