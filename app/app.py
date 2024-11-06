@@ -1,4 +1,7 @@
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
+
+
 import bs4
 import os
 from langchain import hub
@@ -14,7 +17,7 @@ import json
 with open("keys.json", "r") as f:
     data = json.load(f)
 app = Flask(__name__)
-
+CORS(app)
 # Set your OpenAI API key
 os.environ["OPENAI_API_KEY"] = data["OPENAI_API_KEY"]
 
@@ -69,7 +72,7 @@ retriever = vectorstore.as_retriever()
 
 # Set up LLM and prompt
 prompt = hub.pull("rlm/rag-prompt")
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
 
 
 def format_docs(docs):
@@ -94,6 +97,7 @@ def home():
 def chat():
     data = request.json
     question = data.get("question")
+    print(data)
     if not question:
         return jsonify({"error": "No question provided"}), 400
 
