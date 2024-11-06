@@ -1,1 +1,8 @@
+# Ignore environment files
+.env
+
+# Ignore JSON files with sensitive information
 keys.json
+
+# Ignore virtual environment folder
+langchain_env/
