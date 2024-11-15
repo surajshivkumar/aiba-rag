@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "source": "../pages/Locations.htm",
+    "title": "Overview | Locations | University of South Florida",
+    "keywords": "",
+    "description": "",
+    "extractor_used": "main_content_well"
+  },
+  "chunks": [
+    {
+      "content": "USF is situated in the vibrant and diverse Tampa Bay region, with campuses in Tampa, St. Petersburg and Sarasota-Manatee. Together our campuses comprise more than 1,600 acres and nearly 12 million square\n               feet of building space, with areas boasting coastal, bayfront and riverfront views.",
+      "metadata": {
+        "source": "../pages/Locations.htm",
+        "title": "Overview | Locations | University of South Florida",
+        "keywords": "",
+        "description": "",
+        "extractor_used": "main_content_well"
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+/*
+* it-rt-chatbot_wrapper_v2.css
+* USF IT Research Technology.
+* Jason Hair. 2024.
+*
+* brand colors can be found here:
+* https://www.usf.edu/ucm/marketing/documents/usf-visual-identity-quick-start-guide.pdf
+*/
+ 
+#chatbot-icon,
+#chatbot-close {
+  -webkit-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+}
+ 
+/* Chatbot icon */
+#chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0.5em 1em;
+  background-color: #006747;
+  border: 1px solid #fff;
+  
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  color: white;
+  font-family: "Open Sans", sans-serif;
+ 
+  z-index: 999;
+}
+ 
+#chatbot-icon:hover,
+#chatbot-icon:focus,
+#chatbot-icon:active {
+  box-shadow: 0 0 0 5px #009374;
+}
+  
+/* Chatbot close */
+#chatbot-close {
+  position: absolute;
+  display: block;
+  top: 6px;
+  right: 6px;
+  padding: 5px;
+  background-color: #006747;
+  border: 2px solid #006747;
+  border-radius: 50%;
+  
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  
+  color: white;
+ 
+  z-index: 1001;
+}
+ 
+#chatbot-close:hover,
+#chatbot-close:focus,
+#chatbot-close:active {
+  border: 2px solid #fff;
+}
+ 
+  /* Chat window wrapper */
+  #chatbot-frame-wrapper {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+ 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    
+    max-width: 390px;
+    width: calc(100vw - 40px);
+ 
+    max-height: 700px;
+    height: calc(100% - 40px);
+ 
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,.25);
+    overflow: hidden;
+ 
+    z-index: 1000;
+  }
+  
+  /* Show the chat window */
+  #chatbot-frame-wrapper.show {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.3s ease, visibility 0s 0s, opacity 0.3s ease;
+  }
+ 
+/* addressing issues with USF CMS formatting */
+#chatbot-icon, #chatbot-frame-wrapper, #chatbot-frame-wrapper * + * {
+  margin-top: 0;
+}
+ 
+#chatbot-close .material-icons {
+  display: block;
+}

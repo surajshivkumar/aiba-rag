@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { GeminiGreenChat } from "../components/gemini-green-chat";
+import GeminiGreenChat from "./chat/page";
 
 export default function Home() {
   return (
